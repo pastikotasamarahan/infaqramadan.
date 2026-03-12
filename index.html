@@ -94,7 +94,6 @@
             <!-- VIEW 1: PILIHAN AMAUN -->
             <section id="view-1" class="animate__animated animate__fadeIn p-6">
                 <div class="relative h-[240px] rounded-[2.5rem] overflow-hidden shadow-2xl mb-8 group">
-                    <!-- Menggunakan Direct Link dari Google Drive ID: 1Ms6jZACBkaJ1zPp2Kt5HqRhbO_MYtumH -->
                     <img id="hero-img" src="https://lh3.googleusercontent.com/d/1Ms6jZACBkaJ1zPp2Kt5HqRhbO_MYtumH" 
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                          alt="Poster PASTI"
@@ -117,7 +116,7 @@
                 </div>
 
                 <div class="bg-slate-50 p-6 rounded-[2.5rem] border border-slate-100 mb-8">
-                    <label class="text-[9px] font-black text-slate-400 uppercase block mb-3 text-center tracking-[0.2em]">Sumbangan Pilihan (RM)</label>
+                    <label class="text-[9px] font-black text-slate-400 uppercase block mb-3 text-center tracking-[0.2em]">Amaun Sumbangan (RM)</label>
                     <input type="number" id="custom-amount" oninput="manualAmount()" placeholder="0.00" class="w-full bg-white border-2 border-slate-100 p-5 rounded-2xl text-center text-3xl font-black text-green-600 outline-none focus:border-green-500 transition-colors">
                 </div>
 
@@ -130,7 +129,7 @@
             <section id="view-2" class="hidden animate__animated animate__fadeIn p-6">
                 <div class="mb-8">
                     <h3 class="text-xl font-black text-slate-800 uppercase tracking-tighter italic">Maklumat Profil</h3>
-                    <p class="text-xs font-bold text-slate-400">Isi maklumat untuk rekod resit rasmi.</p>
+                    <p class="text-xs font-bold text-slate-400">Isi maklumat untuk rekod sumbangan anda.</p>
                 </div>
 
                 <div class="space-y-5 mb-8">
@@ -173,13 +172,13 @@
                 <!-- KAEDAH 1: TOYYIBPAY (AUTO) -->
                 <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-100 mb-6 relative overflow-hidden">
                     <div class="absolute top-0 right-0 p-2">
-                        <div class="bg-green-100 text-green-700 text-[8px] font-black px-2 py-1 rounded-md uppercase tracking-tighter">Disyorkan</div>
+                        <div class="bg-green-100 text-green-700 text-[8px] font-black px-2 py-1 rounded-md uppercase tracking-tighter">Pilihan Utama</div>
                     </div>
                     <div class="flex items-center gap-2 mb-5">
                         <span class="w-6 h-6 bg-green-600 text-white text-[10px] flex items-center justify-center rounded-lg font-black">1</span>
                         <h2 class="text-xs font-black text-slate-800 uppercase tracking-tight">Bayaran Pantas (FPX)</h2>
                     </div>
-                    <p class="text-[10px] font-bold text-slate-400 mb-4 leading-relaxed">Sesuai untuk semua bank tempatan. Bayaran dikesan secara automatik.</p>
+                    <p class="text-[10px] font-bold text-slate-400 mb-4 leading-relaxed">Pindahan bank automatik melalui ToyyibPay. Lebih selamat dan terus.</p>
                     <button onclick="payWithToyyibPay()" class="w-full bg-slate-900 text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 shadow-xl shadow-slate-200 active:scale-95 transition-all text-xs tracking-widest uppercase">
                         <i data-lucide="zap" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i> Bayar Dengan ToyyibPay
                     </button>
@@ -265,7 +264,7 @@
         lucide.createIcons();
         
         // --- KONFIGURASI TOYYIBPAY ---
-        const toyyibPayURL = "https://toyyibpay.com/XXXXX"; 
+        const toyyibPayURL = "https://toyyibpay.com/SUMBANGAN-RAMADAN-PASTIKS"; 
 
         let totalAmount = 0;
         let selectedBank = "";
@@ -357,7 +356,7 @@
             const isAnon = document.getElementById('is-anonymous').checked;
             const displayName = isAnon ? "HAMBA ALLAH" : name.toUpperCase();
             const phone = "601158578729"; 
-            const message = `*PORTAL SUMBANGAN PASTI SAMARAHAN*\n\nAssalamualaikum Admin, saya telah membuat sumbangan Sumbangan.\n\n*DATA PENYUMBANG*\nNama: ${displayName}\nWhatsApp: ${tel}\n\n*DATA SUMBANGAN*\nJumlah: *RM ${totalAmount.toFixed(2)}*\nID Rujukan: *${orderId}*\n\nTerima kasih.`;
+            const message = `*PORTAL SUMBANGAN PASTI SAMARAHAN*\n\nAssalamualaikum Admin, saya telah membuat sumbangan.\n\n*DATA PENYUMBANG*\nNama: ${displayName}\nWhatsApp: ${tel}\n\n*DATA SUMBANGAN*\nJumlah: *RM ${totalAmount.toFixed(2)}*\nID Rujukan: *${orderId}*\n\nTerima kasih.`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
         }
     </script>
