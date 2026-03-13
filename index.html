@@ -337,10 +337,11 @@
             const tel = document.getElementById('donor-phone').value.trim();
             const isAnon = document.getElementById('is-anonymous').checked;
             const displayName = isAnon ? "HAMBA ALLAH" : name.toUpperCase();
-            const phone = "601158578729"; 
+            const phone = "60104264560"; 
             const message = `*SUMBANGAN PASTI SAMARAHAN*\n\nAdmin, saya telah menyumbang.\n\nNama: ${displayName}\nWhatsApp: ${tel}\nJumlah: *RM ${totalAmount.toFixed(2)}*\nID: *${orderId}*`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
         }
     </script>
 </body>
 </html>
+
