@@ -88,9 +88,10 @@
 
             <section id="view-1" class="animate__animated animate__fadeIn p-6">
                 <div class="relative h-[220px] rounded-[2.5rem] overflow-hidden shadow-2xl mb-8 group">
-                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=1000&auto=format&fit=crop" 
+                    <img src="https://lh3.googleusercontent.com/d/1Ms6jZACBkaJ1zPp2Kt5HqRhbO_MYtumH" 
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                         alt="Poster PASTI">
+                         alt="Poster Sumbangan Ramadan PASTI"
+                         onerror="this.src='https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=1000&auto=format&fit=crop'">
                     
                     <div class="absolute inset-0 hero-gradient flex flex-col justify-end p-8">
                         <div class="flex items-center gap-2 mb-2">
@@ -161,7 +162,7 @@
 
                 <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-100 mb-6 text-center">
                     <button onclick="payWithBCL()" class="w-full bg-[#00adef] text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 shadow-xl shadow-blue-100 active:scale-95 transition-all text-xs tracking-widest uppercase">
-                        <i data-lucide="external-link" class="w-5 h-5"></i> Bayar Dengan BCL (Billplz)
+                        <i data-lucide="external-link" class="w-5 h-5 text-white"></i> Bayar Dengan BCL (Billplz)
                     </button>
                 </div>
 
@@ -170,8 +171,8 @@
                     
                     <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 mb-6 flex justify-between items-center text-left">
                         <div>
-                            <label class="text-[8px] font-black text-slate-400 uppercase block mb-1">Co-opBank Pertama</label>
-                            <span class="text-base font-mono font-bold text-slate-800 tracking-wider">110321000625</span>
+                            <label class="text-[8px] font-black text-slate-400 uppercase block mb-1">Co-opBank Pertama </label>
+                            <span class="text-base font-mono font-bold text-slate-800 tracking-wider">110321000625 </span>
                         </div>
                         <button onclick="copyText('110321000625')" class="bg-slate-200 text-slate-600 p-2 rounded-xl active:scale-90 transition-all">
                             <i data-lucide="copy" class="w-4 h-4"></i>
@@ -307,7 +308,6 @@
 
         // FUNGSI BAYAR BCL
         function payWithBCL() {
-            // Pindah ke borang BCL anda
             window.open(bclURL, '_blank');
         }
 
