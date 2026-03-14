@@ -88,10 +88,9 @@
 
             <section id="view-1" class="animate__animated animate__fadeIn p-6">
                 <div class="relative h-[220px] rounded-[2.5rem] overflow-hidden shadow-2xl mb-8 group">
-                    <img src="https://lh3.googleusercontent.com/d/1Ms6jZACBkaJ1zPp2Kt5HqRhbO_MYtumH?v=2" 
+                    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=1000&auto=format&fit=crop" 
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                         alt="Poster PASTI"
-                         onerror="this.src='https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=1000&auto=format&fit=crop'">
+                         alt="Poster PASTI">
                     
                     <div class="absolute inset-0 hero-gradient flex flex-col justify-end p-8">
                         <div class="flex items-center gap-2 mb-2">
@@ -161,8 +160,8 @@
                 </div>
 
                 <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-100 mb-6 text-center">
-                    <button onclick="payWithToyyibPay()" class="w-full bg-slate-900 text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 shadow-xl shadow-slate-200 active:scale-95 transition-all text-xs tracking-widest uppercase">
-                        <i data-lucide="zap" class="w-5 h-5 text-yellow-400 fill-yellow-400"></i> Bayar Dengan ToyyibPay
+                    <button onclick="payWithBCL()" class="w-full bg-[#00adef] text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 shadow-xl shadow-blue-100 active:scale-95 transition-all text-xs tracking-widest uppercase">
+                        <i data-lucide="external-link" class="w-5 h-5"></i> Bayar Dengan BCL (Billplz)
                     </button>
                 </div>
 
@@ -181,32 +180,18 @@
 
                     <select id="bank-select" onchange="updateBankUI()" class="w-full bg-slate-50 border border-slate-200 p-4 rounded-xl text-sm font-bold mb-4 outline-none appearance-none cursor-pointer">
                         <option value="">-- PILIH BANK ANDA --</option>
-                        <option value="Affin Always">Affin Always</option>
-                        <option value="Agrobank">Agrobank</option>
-                        <option value="Al Rajhi Bank">Al Rajhi Bank</option>
-                        <option value="Alliance Online">Alliance Online</option>
-                        <option value="AmOnline">AmOnline</option>
-                        <option value="Bank Islam">Bank Islam</option>
-                        <option value="Bank Muamalat">Bank Muamalat</option>
-                        <option value="Bank Rakyat">Bank Rakyat</option>
-                        <option value="Bank of China">Bank of China</option>
-                        <option value="BSN">BSN</option>
-                        <option value="CIMB Clicks">CIMB Clicks</option>
-                        <option value="Citibank">Citibank</option>
-                        <option value="Hong Leong Connect">Hong Leong Connect</option>
-                        <option value="HSBC Online">HSBC Online</option>
-                        <option value="ICBC Malaysia">ICBC Malaysia</option>
-                        <option value="Kuwait Finance House">Kuwait Finance House</option>
                         <option value="Maybank2u">Maybank2u</option>
-                        <option value="MBSB Bank">MBSB Bank</option>
-                        <option value="OCBC Online">OCBC Online</option>
-                        <option value="Public Bank">Public Bank</option>
+                        <option value="CIMB Clicks">CIMB Clicks</option>
+                        <option value="Bank Islam">Bank Islam</option>
+                        <option value="Bank Rakyat">Bank Rakyat</option>
+                        <option value="BSN">BSN</option>
                         <option value="RHB Now">RHB Now</option>
-                        <option value="Standard Chartered">Standard Chartered</option>
-                        <option value="UOB TMRW">UOB TMRW</option>
+                        <option value="Public Bank">Public Bank</option>
+                        <option value="AmOnline">AmOnline</option>
+                        <option value="Alliance Online">Alliance Online</option>
+                        <option value="Hong Leong Connect">Hong Leong Connect</option>
+                        <option value="Affin Always">Affin Always</option>
                         <option value="GXBank">GXBank</option>
-                        <option value="AEON Bank">AEON Bank</option>
-                        <option value="Boost Bank">Boost Bank</option>
                     </select>
 
                     <button id="btn-pay" onclick="openModal()" class="hidden w-full bg-blue-600 text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 active:scale-95 transition-all shadow-xl shadow-blue-100 text-xs tracking-widest uppercase mb-4">
@@ -238,7 +223,10 @@
 
     <script>
         lucide.createIcons();
-        const toyyibPayURL = "https://toyyibpay.com/SUMBANGAN-RAMADAN-PASTIKS"; 
+        
+        // PAUTAN BCL ANDA
+        const bclURL = "https://pastikotasamarahan.bcl.my/form/sumbangan-ramadan"; 
+        
         let totalAmount = 0;
         let selectedBank = "";
         const orderId = "SAM-" + Math.floor(100000 + Math.random() * 899999);
@@ -246,32 +234,18 @@
         document.getElementById('summary-ref').innerText = orderId;
 
         const bankUrls = {
-            "Affin Always": "https://www.affinalways.com",
-            "Agrobank": "https://www.agronet.com.my",
-            "Al Rajhi Bank": "https://www.alrajhibank.com.my",
-            "Alliance Online": "https://www.allianceonline.com.my",
-            "AmOnline": "https://ambank.amonline.com.my",
-            "Bank Islam": "https://www.bankislam.biz",
-            "Bank Muamalat": "https://www.muamalat.com.my",
-            "Bank Rakyat": "https://www.irakyat.com.my",
-            "Bank of China": "https://www.bankofchina.com.my",
-            "BSN": "https://www.mybsn.com.my",
-            "CIMB Clicks": "https://www.cimbclicks.com.my",
-            "Citibank": "https://www.citibank.com.my",
-            "Hong Leong Connect": "https://www.hlb.com.my",
-            "HSBC Online": "https://www.hsbc.com.my",
-            "ICBC Malaysia": "https://www.icbcmy.com",
-            "Kuwait Finance House": "https://www.kfhonline.com.my",
             "Maybank2u": "https://www.maybank2u.com.my",
-            "MBSB Bank": "https://www.mbsbbank.com.my",
-            "OCBC Online": "https://www.ocbc.com.my",
-            "Public Bank": "https://www.pbebank.com",
+            "CIMB Clicks": "https://www.cimbclicks.com.my",
+            "Bank Islam": "https://www.bankislam.biz",
+            "Bank Rakyat": "https://www.irakyat.com.my",
+            "BSN": "https://www.mybsn.com.my",
             "RHB Now": "https://www.rhbgroup.com",
-            "Standard Chartered": "https://www.sc.com/my",
-            "UOB TMRW": "https://www.uob.com.my",
-            "GXBank": "https://gxbank.my",
-            "AEON Bank": "https://www.aeonbank.com.my",
-            "Boost Bank": "https://www.myboostbank.co"
+            "Public Bank": "https://www.pbebank.com",
+            "AmOnline": "https://ambank.amonline.com.my",
+            "Alliance Online": "https://www.allianceonline.com.my",
+            "Hong Leong Connect": "https://www.hlb.com.my",
+            "Affin Always": "https://www.affinalways.com",
+            "GXBank": "https://gxbank.my"
         };
 
         function setAmount(val, btn) {
@@ -330,7 +304,12 @@
         function openModal() { document.getElementById('modal').classList.remove('hidden'); }
         function closeModal() { document.getElementById('modal').classList.add('hidden'); }
         function goBank() { if(selectedBank) window.open(bankUrls[selectedBank], '_blank'); closeModal(); }
-        function payWithToyyibPay() { window.open(toyyibPayURL, '_blank'); }
+
+        // FUNGSI BAYAR BCL
+        function payWithBCL() {
+            // Pindah ke borang BCL anda
+            window.open(bclURL, '_blank');
+        }
 
         function sendWhatsApp() {
             const name = document.getElementById('donor-name').value.trim();
@@ -338,10 +317,9 @@
             const isAnon = document.getElementById('is-anonymous').checked;
             const displayName = isAnon ? "HAMBA ALLAH" : name.toUpperCase();
             const phone = "60104264560"; 
-            const message = `*SUMBANGAN PASTI SAMARAHAN*\n\nAdmin, saya telah menyumbang.\n\nNama: ${displayName}\nWhatsApp: ${tel}\nJumlah: *RM ${totalAmount.toFixed(2)}*\nID: *${orderId}*`;
+            const message = `*SUMBANGAN PASTI KOTA SAMARAHAN*\n\nAdmin, saya telah menyumbang.\n\nNama: ${displayName}\nWhatsApp: ${tel}\nJumlah: *RM ${totalAmount.toFixed(2)}*\nID Rujukan: *${orderId}*`;
             window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
         }
     </script>
 </body>
 </html>
-
